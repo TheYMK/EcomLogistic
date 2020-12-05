@@ -8,9 +8,13 @@
 # testing
 /coverage
 
+#firebase
+/actions/firebase.js
+
 # next.js
 /.next/
 /out/
+next.config.js
 
 # production
 /build

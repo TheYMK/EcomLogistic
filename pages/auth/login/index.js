@@ -1,11 +1,11 @@
 import React from 'react';
 import Layout from '../../../components/Layout';
-
+import LoginComponent from '../../../components/auth/LoginComponent';
 function LoginPage() {
 	return (
 		<React.Fragment>
 			<Layout>
-				<h2>Login page</h2>
+				<LoginComponent />
 			</Layout>
 		</React.Fragment>
 	);
