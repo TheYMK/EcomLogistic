@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../components/nav/Header';
+import Header2 from '../components/nav/Header2';
 import { auth } from '../actions/firebase';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../actions/auth';
