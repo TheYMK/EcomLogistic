@@ -1,12 +1,12 @@
 import React from 'react';
-import Layout from '../../components/Layout';
+import AppLayout from '../../components/AppLayout';
 
 function AboutPage() {
 	return (
 		<React.Fragment>
-			<Layout>
+			<AppLayout>
 				<h2>About Page</h2>
-			</Layout>
+			</AppLayout>
 		</React.Fragment>
 	);
 }

@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import 'antd/dist/antd.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Header from '../components/nav/Header';
-import Header2 from '../components/nav/Header2';
+import Header from './nav/Header';
+import Header2 from './nav/Header2';
 import { auth } from '../actions/firebase';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../actions/auth';
 
-function Layout({ children }) {
+function AppLayout({ children }) {
 	const dispatch = useDispatch();
 
 	// to check firebase auth state
@@ -40,11 +40,11 @@ function Layout({ children }) {
 
 	return (
 		<React.Fragment>
-			<Header />
+			<Header2 />
 			<ToastContainer />
 			{children}
 		</React.Fragment>
 	);
 }
 
-export default Layout;
+export default AppLayout;

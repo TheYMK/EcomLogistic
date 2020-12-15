@@ -1,13 +1,13 @@
 import React from 'react';
-import Layout from '../../../components/Layout';
+import AppLayout from '../../../components/AppLayout';
 import RegisterComponent from '../../../components/auth/RegisterComponent';
 
 function RegisterPage() {
 	return (
 		<React.Fragment>
-			<Layout>
+			<AppLayout>
 				<RegisterComponent />
-			</Layout>
+			</AppLayout>
 		</React.Fragment>
 	);
 }

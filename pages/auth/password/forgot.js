@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { auth } from '../../../actions/firebase';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
-import Layout from '../../../components/Layout';
+import AppLayout from '../../../components/AppLayout';
 import Router from 'next/router';
 import { Button } from 'antd';
 import { FORGOT_PASSWORD_REDIRECT_URL } from '../../../config';
@@ -48,7 +48,7 @@ function ForgotPasswordPage() {
 
 	return (
 		<React.Fragment>
-			<Layout>
+			<AppLayout>
 				<div className="container col-md-6 offfset-md-3 p-5">
 					<h4>Mot de passe oublié</h4>
 
@@ -74,7 +74,7 @@ function ForgotPasswordPage() {
 						Submit
 					</Button>
 				</div>
-			</Layout>
+			</AppLayout>
 		</React.Fragment>
 	);
 }

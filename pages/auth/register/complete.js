@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Router from 'next/router';
 import { auth } from '../../../actions/firebase';
 import { toast } from 'react-toastify';
-import Layout from '../../../components/Layout';
+import AppLayout from '../../../components/AppLayout';
 import { Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOrUpdateUser } from '../../../actions/auth';
@@ -102,7 +102,7 @@ function RegisterCompletePage() {
 
 	return (
 		<React.Fragment>
-			<Layout>
+			<AppLayout>
 				<div className="container p-5">
 					<div className="row">
 						<div className="col-md-6 offset-md-3">
@@ -111,7 +111,7 @@ function RegisterCompletePage() {
 						</div>
 					</div>
 				</div>
-			</Layout>
+			</AppLayout>
 		</React.Fragment>
 	);
 }

@@ -1,12 +1,12 @@
 import React from 'react';
-import Layout from '../../../components/Layout';
+import AppLayout from '../../../components/AppLayout';
 import LoginComponent from '../../../components/auth/LoginComponent';
 function LoginPage() {
 	return (
 		<React.Fragment>
-			<Layout>
+			<AppLayout>
 				<LoginComponent />
-			</Layout>
+			</AppLayout>
 		</React.Fragment>
 	);
 }
