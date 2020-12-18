@@ -21,10 +21,21 @@ class MyDocument extends Document {
 						href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap"
 						rel="stylesheet"
 					/>
+
+					<link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet" />
+
+					<link
+						href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+						rel="stylesheet"
+					/>
 				</Head>
 				<body>
 					<Main />
 					<NextScript />
+					<script
+						type="text/javascript"
+						src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/2.2.1/mdb.min.js"
+					/>
 				</body>
 			</Html>
 		);

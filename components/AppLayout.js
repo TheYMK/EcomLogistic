@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './nav/Header';
-import Header2 from './nav/Header2';
+import Header4 from './nav/Header4';
 import { auth } from '../actions/firebase';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../actions/auth';
@@ -40,7 +40,7 @@ function AppLayout({ children }) {
 
 	return (
 		<React.Fragment>
-			<Header2 />
+			<Header4 />
 			<ToastContainer />
 			{children}
 		</React.Fragment>

@@ -1,27 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppLayout from '../components/AppLayout';
 import LazyHero from 'react-lazy-hero';
 import { Button } from 'antd';
-import { InfoCircleOutlined, DollarCircleFilled, PhoneFilled } from '@ant-design/icons';
 import '../styles/Home.module.css';
 import FooterComponent from '../components/nav/FooterComponent';
 import Typewriter from 'typewriter-effect';
+import Link from 'next/link';
+import ServiceCard from '../components/cards/ServiceCard';
 
 function Home() {
+	const [ values, setValues ] = useState({
+		email: '',
+		name: '',
+		message: ''
+	});
+
+	const { email, name, message } = values;
+
+	const handleMessageSubmit = (e) => {
+		e.preventDefault();
+
+		console.log(values);
+	};
+
 	return (
 		<React.Fragment>
-			<AppLayout>
-				<LazyHero
-					imageSrc="/static/images/hero_bg_1_1.jpg"
-					color="#3b3b3b"
-					isCentered={true}
-					minHeight="75vh"
-					opacity={0.5}
-					style={{ overflow: 'hidden' }}
-					transitionDuration={1000}
-					transitionTimingFunction="ease-in-out"
-				>
-					<h1 style={{ color: 'white', fontWeight: '700' }}>
+			<AppLayout />
+			<LazyHero
+				imageSrc="/static/images/hero_bg_1_1.jpg"
+				color="#3b3b3b"
+				isCentered={true}
+				minHeight="65vh"
+				opacity={0.5}
+				style={{ overflow: 'hidden' }}
+				transitionDuration={1000}
+				transitionTimingFunction="ease-in-out"
+			>
+				<h1 style={{ color: 'white', fontWeight: '700' }} className="hero-text">
+					<nobr>
 						SERVICES DE FRET
 						<span style={{ color: '#f89d13' }}>
 							<Typewriter
@@ -32,154 +48,159 @@ function Home() {
 								}}
 							/>
 						</span>
-						& LOGISTIQUE
-					</h1>
-					<Button shape="round" size="large" icon={<InfoCircleOutlined />} className="mt-5 button-home">
-						En savoir plus
-					</Button>
-				</LazyHero>
+						& LOGISTIQUES
+					</nobr>
+				</h1>
+				<div className="card tracking-card" style={{ width: '100%', borderRadius: '20px' }}>
+					<div className="card-body px-5">
+						<h5 className="card-title" style={{ color: '#555' }}>
+							Suivez vos colis en temps réel
+						</h5>
+						<small style={{ fontWeight: '400', color: 'gray' }}>
+							Le numéro de suivi vous a été envoyé par email. <br />En cas de perte de votre numéro de
+							suivi, veuillez nous contacter.
+						</small>
+						<form>
+							<div className="form-group">
+								<div className="container mt-4">
+									<input
+										type="number"
+										className="form-control text-center"
+										id="tracking_number"
+										aria-describedby="trackingNumber"
+										placeholder="Saisissez votre numéro de suivi..."
+									/>
 
-				{/* Tracking section */}
-				<section>
-					<div className="container">
-						<div className="row align-items-center no-gutters align-items-stretch overlap-section">
-							<div className="col-md-4">
-								<div className="feature-1 pricing h-100 text-center">
-									<div className="icon">
-										<DollarCircleFilled />
-									</div>
-									<h2 className="my-4 heading">Best Prices</h2>
-									<p>La rapidité à un prix imbattable</p>
+									<Link href="#">
+										<a className="btn effect01 mt-4">
+											<span>
+												Suivre <i className="fa fa-arrow-circle-right" />
+											</span>
+										</a>
+									</Link>
 								</div>
 							</div>
-							<div className="col-md-4">
-								<div className="free-quote bg-dark h-100">
-									<h2 className="my-4 heading text-center" style={{ fontSize: '15px' }}>
-										Saissez le numéro de suivi qui vous a été fournis
-									</h2>
+						</form>
+					</div>
+				</div>
+			</LazyHero>
 
-									<form>
-										<div className="form-group">
-											<label htmlFor="trackingno">Numero de suivi</label>
-											<input
-												type="text"
-												className="form-control btn-block text-center"
-												id="trackingno"
-												name="trackingno"
-												placeholder="Inserer votre numero de suivi"
-											/>
-										</div>
-										<Button size="large" className="text-center py-2 px-4 btn-block">
-											Suivre
-										</Button>
-									</form>
-								</div>
-							</div>
-							<div className="col-md-4">
-								<div className="feature-3 pricing h-100 text-center">
-									<div className="icon">
-										<PhoneFilled />
-									</div>
-									<h2 className="my-4 heading">Assistance 24/7</h2>
-									<p>Nous somme à votre disposition toute la semaine en cas de besoin</p>
-								</div>
-							</div>
+			<div className="container">
+				<h3 className="text-center mt-4" style={{ color: '#555' }}>
+					CE QUE NOUS OFFRONS
+				</h3>
+				<div className="line-border" />
+				<div className="row text-center">
+					<ServiceCard
+						imgSrc={'/static/images/planeservice.jpeg'}
+						title={'FRET AÉRIEN'}
+						description={`Le réseau mondial aérien de E-Comores Services propose des solutions de livraison rapides et économiques qui répondent à vos besoins. Nous assurons le transport intégral de porte-à-porte et un dédouanement sans encombres. Notre technologie de pointe nous permettent un suivi sophistiqué de vos colis, de l'ordre d'envoi jusqu'à sa destination finale.`}
+					/>
+					<ServiceCard
+						imgSrc={'/static/images/shipservice.jpeg'}
+						title={'FRET MARITIME'}
+						description={`En nous appuyant sur notre réseau international, une équipe d'experts aguerris et des systèmes technologiques intégrés, nous couvrons les principales routes maritimes et commerciales mondiales. Nous nous consacrons entièrement à la gestion de votre cargaison sur tout le processus d'expédition ; de la collecte, à la douane jusqu'à la livraison finale.`}
+					/>
+					<ServiceCard
+						imgSrc={'/static/images/truckservice.jpeg'}
+						title={'FRET TERRESTRE'}
+						description={`Des solutions variées de chargement partiel (LTL) et complet (FTL) associées à des centres stratégiquement localisés permettent d'obtenir les meilleurs résultats en terme de délais et de fiabilité pour le transport de marchandises.`}
+					/>
+				</div>
+			</div>
+
+			<div className="container">
+				<h3 className="text-center" style={{ color: '#4f4f4e', marginTop: '120px' }}>
+					À PROPOS DE NOUS
+				</h3>
+				<div className="line-border" />
+			</div>
+
+			<div className="about">
+				<div className="small-container">
+					<div className="row">
+						<div className="col-md-6">
+							<img src="/static/images/ecomservices.png" className="about-img" />
+						</div>
+						<div className="col-md-6 mt-5">
+							<h1>Qui sommes-nous?</h1>
+							<p style={{ color: '#555' }} className="about-text">
+								Nous sommes tous très différents. Nous sommes nés dans différentes villes, à des moments
+								différents. Mais nous avons quelque chose qui nous unit tous. C'est notre entreprise.
+								Nous sommes son cœur. Nous ne sommes pas qu'une équipe, nous sommes une famille. Une
+								famille avec pour but d'assurer une livraison en temps et en heure, choisissez parmi une
+								palette d'options de fret allant du terrestre au maritime, en passant par les services
+								aériens. Grâce à une combinaison de technologies innovantes de pointe, nous livrons les
+								colis rapidement, quels que soient la taille ou le nombre de colis. Que ce soit pour
+								votre entreprise ou à titre privé, E-Comores Services vous propose la meilleure option
+								de fret pour répondre à vos besoins.
+							</p>
+							<br />
+							<Link href="">
+								<a className="about-button">En savoir plus &#8594;</a>
+							</Link>
 						</div>
 					</div>
-				</section>
+				</div>
+			</div>
 
-				{/* Services section */}
-				<section style={{ marginTop: '80px' }}>
-					<div className="container">
-						<div className="row justify-content-center mb-5">
-							<div className="col-md-7 text-center border-primary">
-								<h2 className="mb-0 text-primary">Ce que nous offrons</h2>
-								<p className="color-black-opacity-5 mt-2">
-									Services de fret terrestre, aérien et maritime
-								</p>
-							</div>
+			<div className="container">
+				<h3 className="text-center" style={{ color: '#4f4f4e', marginTop: '120px' }}>
+					CONTACTEZ NOUS
+				</h3>
+				<div className="line-border" />
+			</div>
+
+			<div className="container" style={{ padding: '100px' }}>
+				<form>
+					<div className="form-row">
+						<div className="form-group col-md-6">
+							<label htmlFor="name">Nom</label>
+							<input
+								type="text"
+								className="form-control"
+								value={name}
+								onChange={(e) => setValues({ ...values, name: e.target.value })}
+								id="name"
+								placeholder="Saisissez votre nom..."
+							/>
 						</div>
-						<div className="row align-items-stretch">
-							<div className="col-md-4 col-lg-4 mb-4 mb-lg-0">
-								<div className="unit-4 d-flex">
-									<div className="unit-4-icon mr-4">
-										<img src="/static/images/travelicon.png" className="text-primary" />
-									</div>
-									<div>
-										<h3>Fret Aérien</h3>
-
-										<p className="mb-0">
-											<a href="#" style={{ color: '#f89d13' }}>
-												En savoir plus
-											</a>
-										</p>
-									</div>
-								</div>
-							</div>
-							<div className="col-md-4 col-lg-4 mb-4 mb-lg-0">
-								<div className="unit-4 d-flex">
-									<div className="unit-4-icon mr-4">
-										<img src="/static/images/shipicon.png" />
-									</div>
-									<div>
-										<h3>Fret Maritime</h3>
-
-										<p className="mb-0">
-											<a href="#" style={{ color: '#f89d13' }}>
-												En savoir plus
-											</a>
-										</p>
-									</div>
-								</div>
-							</div>
-							<div className="col-md-4 col-lg-4 mb-4 mb-lg-0">
-								<div className="unit-4 d-flex">
-									<div className="unit-4-icon mr-4">
-										<img src="/static/images/truckicon.png" />
-									</div>
-									<div>
-										<h3>Livraison à Domicile</h3>
-										<p className="mb-0">
-											<a href="#" style={{ color: '#f89d13' }}>
-												En savoir plus
-											</a>
-										</p>
-									</div>
-								</div>
-							</div>
+						<div className="form-group col-md-6">
+							<label htmlFor="email">Email</label>
+							<input
+								type="email"
+								className="form-control"
+								id="email"
+								value={email}
+								onChange={(e) => setValues({ ...values, email: e.target.value })}
+								placeholder="Saisissez votre email..."
+							/>
+						</div>
+						<div className="form-group col-md-12">
+							<label htmlFor="message">Message</label>
+							<textarea
+								className="form-control"
+								id="message"
+								rows="6"
+								value={message}
+								onChange={(e) => setValues({ ...values, message: e.target.value })}
+								placeholder="Saisissez votre message..."
+							/>
 						</div>
 					</div>
-				</section>
 
-				<hr className="mt-5" />
+					<button className="message-button" onClick={handleMessageSubmit}>
+						Envoyer
+					</button>
+				</form>
+			</div>
 
-				{/* Contact us section */}
-				<section>
-					<div className="container mt-5">
-						<div className="row text-center">
-							<div className="col-md-12">
-								<h2 className="mb-5 text-black">Essayez nos services</h2>
-								<p className="mb-0">
-									<Button
-										size="large"
-										className="text-center py-2 px-4 button-home"
-										style={{ width: '250px', height: '70px', fontSize: '20px' }}
-									>
-										Contactez nous
-									</Button>
-								</p>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				{/* Footer */}
-				<section style={{ marginTop: '100px' }}>
-					<FooterComponent />
-				</section>
-			</AppLayout>
+			<div>
+				<FooterComponent />
+			</div>
 		</React.Fragment>
 	);
 }
 
+// 		<img src={'/static/images/ecomservices.png'} style={{ width: '400px' }} />
 export default Home;
