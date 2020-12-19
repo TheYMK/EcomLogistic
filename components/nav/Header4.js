@@ -29,7 +29,7 @@ function Header4() {
 				<nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 					<div className="logo mr-4">
 						<Link href="/" onClick={(e) => setCurrent('home')}>
-							<a className="navbar-brand">E-Com Logistics</a>
+							<a className="navbar-brand">E-Comores Logisitcs</a>
 						</Link>
 					</div>
 					<button
@@ -57,6 +57,14 @@ function Header4() {
 								</Link>
 							</li>
 							<li
+								className={`nav-item ${current === 'services' ? 'active' : ''}`}
+								onClick={(e) => setCurrent('services')}
+							>
+								<Link href="/#services">
+									<a className="nav-link">Services</a>
+								</Link>
+							</li>
+							{/* <li
 								className={`nav-item ${current === 'services' ? 'active' : ''} dropdown`}
 								onClick={(e) => setCurrent('services')}
 							>
@@ -82,12 +90,12 @@ function Header4() {
 										<a className="dropdown-item">Services terrestre</a>
 									</Link>
 								</div>
-							</li>
+							</li> */}
 							<li
 								className={`nav-item ${current === 'about' ? 'active' : ''}`}
 								onClick={(e) => setCurrent('about')}
 							>
-								<Link href="/about">
+								<Link href="/#about">
 									<a className="nav-link">À propos de nous</a>
 								</Link>
 							</li>
@@ -95,13 +103,13 @@ function Header4() {
 								className={`nav-item ${current === 'contact' ? 'active' : ''}`}
 								onClick={(e) => setCurrent('contact')}
 							>
-								<Link href="/contact">
+								<Link href="/#contact">
 									<a className="nav-link">Contactez nous</a>
 								</Link>
 							</li>
 						</ul>
 						<ul className="navbar-nav ml-auto nav-flex-icons">
-							{!user && (
+							{/* {!user && (
 								<li className="nav-item">
 									<Link href="/auth/register">
 										<a className="nav-link">Inscription</a>
@@ -115,7 +123,7 @@ function Header4() {
 										<a className="nav-link">Se connecter</a>
 									</Link>
 								</li>
-							)}
+							)} */}
 
 							{user && (
 								<li className="nav-item dropdown">

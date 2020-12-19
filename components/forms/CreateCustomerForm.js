@@ -137,6 +137,7 @@ function CreateCustomerForm({ setValues, values, loading, transport_types, statu
 						className="form-control"
 						onChange={(e) => setValues({ ...values, transport_type: e.target.value })}
 					>
+						<option value="">Veuillez choisir un type de transport</option>
 						{transport_types.map((t, i) => (
 							<option key={i} value={t}>
 								{t}
@@ -182,6 +183,7 @@ function CreateCustomerForm({ setValues, values, loading, transport_types, statu
 						className="form-control"
 						onChange={(e) => setValues({ ...values, status: e.target.value })}
 					>
+						<option value="">Veuillez choisir un status</option>
 						{statusOptions.map((s, i) => (
 							<option key={i} value={s}>
 								{s}

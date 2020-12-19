@@ -1,0 +1,7 @@
+.line-border {
+	display: block;
+    width: 80px;
+    height: 3px;
+    background: #f89d13;
+    margin: 20px auto;
+}
