@@ -49,7 +49,16 @@ function ClientDashboard({ customer, params }) {
 			</div>
 
 			<div className="container mb-5">
-				{customer && customer.visited_locations > 0 ? (
+				{Object.keys(customer).length === 0 && customer.constructor === Object ? (
+					<div className="card">
+						<div className="card-body">
+							<p className="text-center p-5" style={{ fontSize: '15px' }}>
+								Le numero de suivi que vous avez saisi n'existe pas. Veuillez vous reférer à l'email qui
+								vous a été envoyé ou contactez nous en cas de perte de votre numero de suivi.
+							</p>
+						</div>
+					</div>
+				) : (
 					<div className="card">
 						<div className="card-body">
 							<p className="text-center p-5" style={{ fontSize: '15px' }}>
@@ -145,15 +154,6 @@ function ClientDashboard({ customer, params }) {
 									</Timeline>
 								</div>
 							</div>
-						</div>
-					</div>
-				) : (
-					<div className="card">
-						<div className="card-body">
-							<p className="text-center p-5" style={{ fontSize: '15px' }}>
-								Le numero de suivi que vous avez saisi n'existe pas. Veuillez vous reférer à l'email qui
-								vous a été envoyé ou contactez nous en cas de perte de votre numero de suivi.
-							</p>
 						</div>
 					</div>
 				)}
