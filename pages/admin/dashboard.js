@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import AdminTrackingInfo from '../../components/cards/AdminTrackingInfo';
 import { toast } from 'react-toastify';
+import Head from 'next/head';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -49,8 +50,16 @@ function AdminDashboardPage() {
 		});
 	};
 
+	const head = () => (
+		<Head>
+			<title>Page Client | E-Com Logistics </title>
+			<meta name="description" content="Page réservé aux administrateur de E-Com logistics" />
+		</Head>
+	);
+
 	return (
 		<React.Fragment>
+			{head()}
 			<AppLayout>
 				<Admin>
 					<Layout style={{ minHeight: '100vh' }}>

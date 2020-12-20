@@ -29,7 +29,7 @@ function Header4() {
 				<nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 					<div className="logo mr-4">
 						<Link href="/" onClick={(e) => setCurrent('home')}>
-							<a className="navbar-brand">E-Comores Logisitcs</a>
+							<a className="navbar-brand">E-Com Logisitcs</a>
 						</Link>
 					</div>
 					<button

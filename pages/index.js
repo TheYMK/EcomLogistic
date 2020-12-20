@@ -9,8 +9,11 @@ import Link from 'next/link';
 import ServiceCard from '../components/cards/ServiceCard';
 import { emailContactForm } from '../actions/form';
 import Router from 'next/router';
+import Head from 'next/head';
+import { API_URL, DOMAIN } from '../config';
+import { withRouter } from 'next/router';
 
-function Home() {
+function Home({ router }) {
 	const [ values, setValues ] = useState({
 		email: '',
 		name: '',
@@ -43,9 +46,32 @@ function Home() {
 		});
 	};
 
+	const head = () => (
+		<Head>
+			<title>Acceuil | E-Com Logistics </title>
+			<meta name="description" content="Page d'acceuil de E-Com Logistics" />
+			<link rel="canonical" href={`${DOMAIN}/`} />
+
+			<meta property="og:title" content={`Acceuil | E-Com Logistics`} />
+			<meta property="og:description" content="Page d'acceuil de E-Com Logistics" />
+
+			<meta property="og:type" content="website" />
+			<meta property="og:url" content={`${DOMAIN}/}`} />
+			<meta property="og:site_name" content={`E-Com logistics`} />
+
+			<meta property="og:image" content={`${DOMAIN}/static/images/homepage.png`} />
+			<meta property="og:image:secure_url" content={`${DOMAIN}/static/images/homepage.png`} />
+			<meta property="og:image:type" content="image/png" />
+		</Head>
+	);
+
 	const handleTrackingNumberSubmit = (e) => {
 		e.preventDefault();
-		if (trackingNumber.length > 0) Router.push(`/client/${trackingNumber}`);
+		if (trackingNumber.length > 0) {
+			// window.location.replace(`/client/${trackingNumber}`);
+
+			Router.push(`/client/${trackingNumber}`);
+		}
 	};
 
 	const showErrorMessage = () => (
@@ -56,6 +82,7 @@ function Home() {
 
 	return (
 		<React.Fragment>
+			{head()}
 			<div className="site">
 				<AppLayout />
 				<LazyHero

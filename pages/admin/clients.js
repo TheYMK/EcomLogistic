@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import CreateCustomerForm from '../../components/forms/CreateCustomerForm';
+import Head from 'next/head';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -62,6 +63,13 @@ function AdminClientsPage() {
 	const showModal = () => {
 		setIsModalVisible(true);
 	};
+
+	const head = () => (
+		<Head>
+			<title>Page Client | E-Com Logistics </title>
+			<meta name="description" content="Page réservé aux administrateur de E-Com logistics" />
+		</Head>
+	);
 
 	const handleOk = () => {
 		// Create a customer
@@ -174,6 +182,7 @@ function AdminClientsPage() {
 
 	return (
 		<React.Fragment>
+			{head()}
 			<AppLayout>
 				<Admin>
 					<Layout style={{ minHeight: '100vh' }}>
